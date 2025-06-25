@@ -1,19 +1,49 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015", // ES5 → ES2015로 변경 (Vue 3는 최신 브라우저 대상)
     "module": "esnext",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true, // 대소문자 일관성 강제 (권장)
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
-  }
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "checkJs": true, // JS 파일 타입 검사 활성화 (필수)
+    "allowJs": true, // JS 파일 허용 (필수)
+    "esModuleInterop": true, // 모듈 호환성 개선
+    "skipLibCheck": true, // 라이브러리 선언 검사 생략
+    "types": ["vite/client"], // Vite 환경 타입 (Vite 사용 시)
+    "jsx": "preserve" // Vue JSX 지원 (필요 시)
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.vue", // Vue 파일 명시적 포함
+    "global.d.js" // 전역 컴포넌트 선언 파일
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
+
+// {
+// "compilerOptions": {
+// "target": "es5",
+// "module": "esnext",
+// "baseUrl": "./",
+// "moduleResolution": "node",
+// "forceConsistentCasingInFileNames": false,
+// "paths": {
+// "@/": [
+// "src/"
+// ]
+// },
+// "lib": [
+// "esnext",
+// "dom",
+// "dom.iterable",
+// "scripthost"
+// ]
+// },
+// }
